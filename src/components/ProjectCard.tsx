@@ -1,8 +1,9 @@
+import Link from "next/link";
 import type { Project } from "@/lib/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <a
+    <Link
       href={`/projects/${project.slug}`}
       className="group block rounded-xl border border-border bg-card p-6 transition hover:border-accent hover:shadow-md"
     >
@@ -36,6 +37,6 @@ export function ProjectCard({ project }: { project: Project }) {
           </div>
         ))}
       </div>
-    </a>
+    </Link>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -31,19 +32,19 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans">
         <header className="no-print border-b border-border">
           <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-            <a href="/" className="text-lg font-bold tracking-tight">
+            <Link href="/" className="text-lg font-bold tracking-tight">
               고동욱
-            </a>
+            </Link>
             <div className="flex items-center gap-6 text-sm text-muted">
-              <a href="/#projects" className="hover:text-foreground transition">
+              <Link href="/#projects" className="hover:text-foreground transition">
                 Projects
-              </a>
-              <a href="/#skills" className="hover:text-foreground transition">
+              </Link>
+              <Link href="/#skills" className="hover:text-foreground transition">
                 Skills
-              </a>
-              <a href="/#blog" className="hover:text-foreground transition">
+              </Link>
+              <Link href="/#blog" className="hover:text-foreground transition">
                 Blog
-              </a>
+              </Link>
               <a
                 href="https://github.com/kotom320"
                 target="_blank"

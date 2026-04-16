@@ -1,14 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { MetricCard } from "@/components/MetricCard";
 import { FlowDiagram } from "@/components/FlowDiagram";
 
 export default function TouchCarouselPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-12">
-      <a href="/" className="text-sm text-muted hover:text-accent transition no-print">
+      <Link href="/" className="text-sm text-muted hover:text-accent transition no-print">
         &larr; 돌아가기
-      </a>
+      </Link>
 
       <div className="mt-6">
         <p className="text-sm font-medium text-accent">2023-2024</p>
