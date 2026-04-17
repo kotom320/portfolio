@@ -1,3 +1,9 @@
+export interface RelatedPost {
+  slug: string;
+  title: string;
+  kind?: "overview" | "series" | "deep-dive";
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -6,7 +12,11 @@ export interface Project {
   tags: string[];
   summary: string;
   metrics: { label: string; value: string; description: string }[];
+  /** TIL 블로그에 있는 이 프로젝트의 확장편 */
+  relatedPosts?: RelatedPost[];
 }
+
+export const BLOG_BASE = "https://til-git-main-kotom320s-projects.vercel.app";
 
 export const projects: Project[] = [
   {
@@ -34,6 +44,18 @@ export const projects: Project[] = [
         description: "WebP 전환",
       },
     ],
+    relatedPosts: [
+      {
+        slug: "cloudfront-invalidation-scope",
+        title: "CloudFront Invalidation 범위 최적화: /* → /index.html로 Data transfer 완화",
+        kind: "deep-dive",
+      },
+      {
+        slug: "cloudfront-invalidation-result",
+        title: "CloudFront 비용 분석: Invalidation 범위 변경이 실제 비용에 미친 영향",
+        kind: "deep-dive",
+      },
+    ],
   },
   {
     slug: "qa-recording-sdk",
@@ -58,6 +80,48 @@ export const projects: Project[] = [
         label: "커버 영역",
         value: "3종",
         description: "DOM / 네트워크 / 콘솔",
+      },
+    ],
+    relatedPosts: [
+      {
+        slug: "qaroom-devlog",
+        title: "QA 기록방을 만들었습니다",
+        kind: "overview",
+      },
+      {
+        slug: "qaroom-01-planning",
+        title: "QA 기록방을 만든 이유 — 우아콘2025에서 시작된 아이디어",
+        kind: "series",
+      },
+      {
+        slug: "qaroom-02-sdk",
+        title: "rrweb으로 브라우저 화면 녹화하기 — qaroom SDK 구현",
+        kind: "series",
+      },
+      {
+        slug: "qaroom-03-viewer",
+        title: "rrweb-player로 세션 재생 뷰어 만들기",
+        kind: "series",
+      },
+      {
+        slug: "qaroom-04-firebase",
+        title: "Firebase Firestore 연동과 문서 크기 제한 문제",
+        kind: "series",
+      },
+      {
+        slug: "qaroom-05-supabase",
+        title: "Firebase에서 Supabase로 마이그레이션하기",
+        kind: "series",
+      },
+      {
+        slug: "qaroom-06-jira",
+        title: "브라우저에서 Jira API를 못 쓰는 이유 — CORS와 Supabase Edge Function",
+        kind: "series",
+      },
+      {
+        slug: "rrweb-long-chunk-bug",
+        title: "rrweb 녹화 중 화면 꺼짐으로 생긴 19시간짜리 청크 버그",
+        kind: "deep-dive",
       },
     ],
   },
@@ -122,6 +186,23 @@ export const projects: Project[] = [
         label: "UI 협업",
         value: "Chromatic",
         description: "PR 단위 시각 회귀",
+      },
+    ],
+    relatedPosts: [
+      {
+        slug: "jenkins-webview-pipeline",
+        title: "Jenkins로 WebView 프로젝트 배포 파이프라인 구축하기",
+        kind: "deep-dive",
+      },
+      {
+        slug: "storybook-chromatic-design-system",
+        title: "다크모드 대응 과정에서 Storybook·Chromatic으로 디자인 시스템 협업 개선",
+        kind: "deep-dive",
+      },
+      {
+        slug: "storybook-tsconfig",
+        title: "Storybook 도입 과정에서 이해하게 된 tsconfig의 진짜 역할",
+        kind: "deep-dive",
       },
     ],
   },

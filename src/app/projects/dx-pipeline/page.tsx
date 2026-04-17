@@ -4,6 +4,11 @@ import Link from "next/link";
 import { MetricCard } from "@/components/MetricCard";
 import { FlowDiagram } from "@/components/FlowDiagram";
 import { ComparisonTable } from "@/components/ComparisonTable";
+import { RelatedPosts } from "@/components/RelatedPosts";
+import { projects } from "@/lib/projects";
+
+const related =
+  projects.find((p) => p.slug === "dx-pipeline")?.relatedPosts ?? [];
 
 export default function DxPipelinePage() {
   return (
@@ -228,6 +233,8 @@ export default function DxPipelinePage() {
           </p>
         </div>
       </section>
+
+      <RelatedPosts posts={related} />
     </div>
   );
 }

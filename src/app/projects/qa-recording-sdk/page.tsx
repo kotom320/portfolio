@@ -4,6 +4,11 @@ import Link from "next/link";
 import { MetricCard } from "@/components/MetricCard";
 import { FlowDiagram } from "@/components/FlowDiagram";
 import { ComparisonTable } from "@/components/ComparisonTable";
+import { RelatedPosts } from "@/components/RelatedPosts";
+import { projects } from "@/lib/projects";
+
+const related =
+  projects.find((p) => p.slug === "qa-recording-sdk")?.relatedPosts ?? [];
 
 export default function QaSdkPage() {
   return (
@@ -175,6 +180,8 @@ export default function QaSdkPage() {
           </p>
         </div>
       </section>
+
+      <RelatedPosts posts={related} />
     </div>
   );
 }

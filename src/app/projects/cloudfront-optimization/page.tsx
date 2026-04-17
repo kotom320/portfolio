@@ -4,6 +4,11 @@ import Link from "next/link";
 import { MetricCard } from "@/components/MetricCard";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { FlowDiagram } from "@/components/FlowDiagram";
+import { RelatedPosts } from "@/components/RelatedPosts";
+import { projects } from "@/lib/projects";
+
+const related =
+  projects.find((p) => p.slug === "cloudfront-optimization")?.relatedPosts ?? [];
 
 // 민감 정보(실비용)는 표기하지 않고 상대 지수(기준월=100)로 추이만 표현
 const costIndexData = [
@@ -171,7 +176,7 @@ export default function CloudFrontPage() {
       </section>
 
       {/* 회고 */}
-      <section className="mt-12 mb-8">
+      <section className="mt-12">
         <h2 className="text-xl font-bold">회고</h2>
         <div className="mt-4 rounded-xl border border-border bg-accent-light/30 p-5">
           <p className="text-sm leading-relaxed">
@@ -181,6 +186,9 @@ export default function CloudFrontPage() {
           </p>
         </div>
       </section>
+
+      {/* 블로그 cross-link */}
+      <RelatedPosts posts={related} />
     </div>
   );
 }
