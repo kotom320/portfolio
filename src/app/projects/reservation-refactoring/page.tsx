@@ -14,18 +14,30 @@ export default function ReservationPage() {
       <div className="mt-6">
         <p className="text-sm font-medium text-accent">2024</p>
         <h1 className="mt-1 text-3xl font-bold tracking-tight">
-          예약 시스템 리팩터링
+          예약 도메인 아키텍처 재설계
         </h1>
         <p className="mt-2 text-lg text-muted">
-          오버엔지니어링 청산 및 도메인 아키텍처 재설계
+          과도한 공통화로 인한 결합도 문제를 도메인 분리로 해소
         </p>
       </div>
 
       {/* Metrics */}
       <div className="mt-8 grid grid-cols-3 gap-4">
-        <MetricCard label="변경 규모" value="170 파일" description="UI 전면 개편" />
-        <MetricCard label="코드 변경" value="3,831줄" description="1,898 추가 / 1,933 삭제" />
-        <MetricCard label="예약 유형" value="7가지" description="도메인별 분리" />
+        <MetricCard
+          label="도메인 격리"
+          value="7개 유형"
+          description="단일 분기 → 독립 모듈"
+        />
+        <MetricCard
+          label="수정 파급 범위"
+          value="전체 → 단일"
+          description="사이드이펙트 차단"
+        />
+        <MetricCard
+          label="신규 유형 추가"
+          value="독립 확장"
+          description="기존 유형 영향 없음"
+        />
       </div>
 
       {/* 문제 정의 */}
@@ -109,13 +121,23 @@ export default function ReservationPage() {
         <h2 className="text-xl font-bold">결과 & 회고</h2>
         <div className="mt-4 rounded-xl border border-border bg-accent-light/30 p-5">
           <ul className="space-y-2 text-sm leading-relaxed">
-            <li>운영 중 에러 발생률 감소</li>
-            <li>신규 예약 유형 추가 시 개발 속도 회복</li>
-            <li>이후 예약 도메인 개발의 안정적 확장 기반 확보</li>
+            <li>
+              <strong>독립 진화 가능</strong>: 신규 예약 유형을 추가할 때
+              기존 6개 유형의 코드를 건드리지 않고 신규 도메인 모듈만 추가하면 되는 구조 확보
+            </li>
+            <li>
+              <strong>사이드이펙트 차단</strong>: 도메인별 수정이 다른 유형에 파급되지 않아,
+              운영 중 발생하던 &quot;숙박 수정 후 스크린골프에서 버그&quot; 같은 교차 이슈가 구조적으로 발생 불가능해짐
+            </li>
+            <li>
+              <strong>리뷰·테스트 범위 축소</strong>: 변경 리뷰 및 QA 범위가
+              수정 대상 도메인으로 한정되어 검증 비용 절감
+            </li>
           </ul>
           <p className="mt-4 text-sm leading-relaxed text-muted">
             이 경험을 통해 <strong>&quot;같아 보이는 것을 공통화하지 말고, 같다고 증명된 것만 공통화하라&quot;</strong>는
-            원칙을 체득했습니다.
+            원칙을 체득했습니다. 같은 실수를 반복하지 않기 위해 이후 팀 내 공통 모듈 설계 시
+            bottom-up 검증을 기본 원칙으로 제안하고 있습니다.
           </p>
         </div>
       </section>

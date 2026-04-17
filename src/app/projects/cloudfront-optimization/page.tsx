@@ -5,6 +5,13 @@ import { MetricCard } from "@/components/MetricCard";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { FlowDiagram } from "@/components/FlowDiagram";
 
+// 민감 정보(실비용)는 표기하지 않고 상대 지수(기준월=100)로 추이만 표현
+const costIndexData = [
+  { name: "1월 (기준)", before: 100, after: 100 },
+  { name: "2월", before: 100, after: 38 },
+  { name: "3월", before: 100, after: 23 },
+];
+
 const trafficData = [
   { name: "총 요청 수 (만)", before: 1240, after: 220 },
   { name: "데이터 전송 (GB)", before: 845, after: 270 },
@@ -37,9 +44,30 @@ export default function CloudFrontPage() {
 
       {/* Metrics */}
       <div className="mt-8 grid grid-cols-3 gap-4">
-        <MetricCard label="요청 수 감소" value="-82%" description="CDN 총 요청 수" />
-        <MetricCard label="전송량 감소" value="-68%" description="데이터 전송량" />
-        <MetricCard label="이미지 경량화" value="-94%" description="대표 이미지 용량" />
+        <MetricCard
+          label="월 CDN 비용"
+          value="-77.5%"
+          description="3개월 내 달성"
+        />
+        <MetricCard
+          label="요청 수 감소"
+          value="-82%"
+          description="Edge 캐시 활용"
+        />
+        <MetricCard
+          label="이미지 경량화"
+          value="-94%"
+          description="WebP 전환"
+        />
+      </div>
+
+      {/* 비용 요약 */}
+      <div className="mt-4 rounded-xl border border-accent/30 bg-accent-light/20 p-4">
+        <p className="text-xs text-muted">
+          <strong className="text-accent">월별 CDN 비용 추이</strong> — 1월 기준 100 &rarr; 2월 38 &rarr; 3월 23 (상대 지수).
+          데이터 기반 분석과 3단계 구조 개선(무효화 범위 한정 / Cache-Control immutable / WebP 전환)이 누적되며 점진적으로 절감 효과 확보.
+          <span className="ml-1 text-muted/70">※ 실비용 절대값은 사내 대외비로 표기 생략</span>
+        </p>
       </div>
 
       {/* 문제 정의 */}
@@ -107,6 +135,7 @@ export default function CloudFrontPage() {
       />
 
       {/* Before/After 차트 */}
+      <BeforeAfter title="월별 CDN 비용 상대 지수 (1월=100)" data={costIndexData} />
       <BeforeAfter title="트래픽 변화 (2주간 비교)" data={trafficData} />
       <BeforeAfter title="이미지 용량 비교 (KB)" data={imageData} />
 

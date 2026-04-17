@@ -13,30 +13,42 @@ export default function QaSdkPage() {
       </Link>
 
       <div className="mt-6">
-        <p className="text-sm font-medium text-accent">2024-2025</p>
+        <p className="text-sm font-medium text-accent">2026.03</p>
         <h1 className="mt-1 text-3xl font-bold tracking-tight">
-          QA 세션 레코딩 SDK
+          세션 레코딩 SDK
         </h1>
         <p className="mt-2 text-lg text-muted">
-          팀 디버깅 프로세스 혁신을 위한 내부 도구 단독 설계/개발
+          상용 도구 대비 비용 0원으로 개발·디자인 검증 프로세스 구축
         </p>
       </div>
 
       {/* Metrics */}
       <div className="mt-8 grid grid-cols-3 gap-4">
-        <MetricCard label="SDK 규모" value="1,062줄" description="단독 개발" />
-        <MetricCard label="도입 결과" value="표준 도구" description="사내 QA 프로세스 채택" />
-        <MetricCard label="패키지" value="npm" description="@htbeyond/qaroom" />
+        <MetricCard
+          label="운영 비용"
+          value="0원"
+          description="Supabase 무료 티어"
+        />
+        <MetricCard
+          label="도입 방법"
+          value="1줄"
+          description="initQaRoom() 호출"
+        />
+        <MetricCard
+          label="커버 영역"
+          value="3종"
+          description="DOM / 네트워크 / 콘솔"
+        />
       </div>
 
       {/* 문제 정의 */}
       <section className="mt-12">
         <h2 className="text-xl font-bold">문제 정의</h2>
         <p className="mt-3 leading-relaxed text-muted">
-          QA 엔지니어가 버그를 스크린샷+텍스트로 전달하는 방식이었고,
-          &quot;재현이 안 됩니다&quot;라는 응답이 반복되며 개발-QA 간 커뮤니케이션 비용이 높았습니다.
-          상용 세션 레코딩 도구(LogRocket, FullStory 등)는 비용 부담이 컸고,
-          사내 Jira 워크플로우와의 연동이 제한적이었습니다.
+          개발·디자인·QA 과정에서 &quot;재현이 안 됩니다&quot;가 반복되며 커뮤니케이션 비용이
+          지속적으로 누적되고 있었습니다. 상용 세션 레코딩 도구(LogRocket, FullStory 등)는
+          월 수백만 원의 운영 비용과 제한적인 Jira 커스터마이징이 한계였습니다.
+          &quot;돈을 쓰지 않고 재현 가능한 버그 리포팅 인프라를 만들 수 있는가&quot;가 출발점이었습니다.
         </p>
       </section>
 
@@ -129,13 +141,37 @@ export default function QaSdkPage() {
         </div>
       </section>
 
-      {/* 한계 인식 */}
-      <section className="mt-12 mb-8">
-        <h2 className="text-xl font-bold">한계 인식 & 향후 개선</h2>
+      {/* 결과 & 사용 현황 */}
+      <section className="mt-12">
+        <h2 className="text-xl font-bold">결과 & 사용 현황</h2>
         <div className="mt-4 rounded-xl border border-border bg-accent-light/30 p-5">
-          <p className="text-sm leading-relaxed">
-            현재 SDK가 단일 파일(1,062줄)로 구성되어 있어, 향후 <strong>플러그인 아키텍처</strong>로
-            분리하여 네트워크/콘솔 캡처를 선택적으로 활성화할 수 있는 구조로 개선이 필요합니다.
+          <ul className="space-y-2 text-sm leading-relaxed">
+            <li>
+              <strong>운영 비용 0원</strong>: Supabase 무료 티어로 운영, 상용 도구 대비
+              월 수백만 원 수준의 비용 0화
+            </li>
+            <li>
+              <strong>개발·디자인 협업 검증 도구로 정착</strong>: 함께 개발하는
+              디자이너·개발자가 기능 검증 단계에서 재현 가능한 세션을 공유하는 채널로 활용
+            </li>
+            <li>
+              <strong>npm private 패키지로 배포</strong> (<code className="rounded bg-accent-light px-1 py-0.5 text-xs font-mono text-accent">@htbeyond/qaroom</code>),
+              <code className="ml-1 rounded bg-accent-light px-1 py-0.5 text-xs font-mono text-accent">initQaRoom()</code> 한 줄로 앱에 주입
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* 한계 인식 */}
+      <section className="mt-8 mb-8">
+        <h2 className="text-xl font-bold">한계 인식 & 향후 개선</h2>
+        <div className="mt-4 rounded-xl border border-border bg-card p-5">
+          <p className="text-sm leading-relaxed text-muted">
+            QA 조직은 자체 검증 프로세스가 있어 SDK 의존도가 낮은 상태입니다.
+            현재는 개발·디자인 협업 단계의 보조 도구로 자리잡았고,
+            <strong> QA 워크플로우에 자연스럽게 녹아들 수 있는 통합 지점을 추가 설계</strong>하는 것이 다음 과제입니다.
+            구조적으로는 단일 파일(1천여 줄) 구성을 <strong>플러그인 아키텍처</strong>로
+            분리하여 네트워크/콘솔 캡처를 선택적으로 활성화할 수 있게 개선할 예정입니다.
           </p>
         </div>
       </section>

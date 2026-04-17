@@ -20,26 +20,62 @@ const skills = [
   },
 ];
 
-const blogHighlights = [
+const BLOG_URL = "https://til-git-main-kotom320s-projects.vercel.app";
+
+const blogStats = [
+  { label: "총 포스트", value: "76편" },
+  { label: "카테고리", value: "11개" },
+  { label: "연재 기간", value: "11개월" },
+];
+
+const blogCategories = [
   {
-    title: "CloudFront 비용 최적화 시리즈",
-    description: "MAU 50만 서비스에서 CDN 비용을 데이터 기반으로 분석하고 최적화한 과정",
-    count: "시리즈",
+    name: "JavaScript & TypeScript",
+    count: 19,
+    picks: [
+      "await와 이벤트 루프, 마이크로태스크 동작 원리",
+      "얕은 비교 vs 깊은 비교",
+    ],
   },
   {
-    title: "QA SDK 개발기",
-    description: "rrweb 기반 세션 레코딩 SDK를 설계하고 개발한 전 과정",
-    count: "6편",
+    name: "React & React Query",
+    count: 15,
+    picks: [
+      "TanStack Query staleTime & cacheTime 정리",
+      "React Error Boundary 개념 정리",
+    ],
   },
   {
-    title: "React Query 시리즈",
-    description: "v4에서 v5로의 마이그레이션과 실전 패턴 정리",
-    count: "7편",
+    name: "qaroom 사이드 프로젝트",
+    count: 6,
+    picks: [
+      "QA 기록방을 만든 이유 — 우아콘2025에서 시작된 아이디어",
+      "rrweb으로 브라우저 화면 녹화하기 — SDK 구현",
+    ],
   },
   {
-    title: "JavaScript 런타임 딥다이브",
-    description: "이벤트루프, 마이크로태스크, 비동기 처리의 내부 동작",
-    count: "시리즈",
+    name: "Git & CI",
+    count: 7,
+    picks: [
+      "Git Cherry-pick 심층 정리: Copy vs Cut, 이동 패턴",
+      "GitHub Actions로 CI 구성하기",
+    ],
+  },
+  {
+    name: "DevOps & 운영",
+    count: 3,
+    picks: [
+      "CloudFront Invalidation 범위 최적화",
+      "Jenkins로 mobile-webview 배포 파이프라인 구축하기",
+    ],
+  },
+  {
+    name: "Tools & 환경",
+    count: 11,
+    picks: [
+      "SonarQube 사용 및 경고 관리",
+      "한글 파일명 정규화(NFC, NFD)",
+    ],
   },
 ];
 
@@ -124,25 +160,60 @@ export default function Home() {
       <section id="blog" className="pb-16">
         <h2 className="text-2xl font-bold tracking-tight">Blog Highlights</h2>
         <p className="mt-2 text-sm text-muted">
-          11개월간 76편의 기술 포스트를 연재하며, 업무에서 마주친 실제 문제의 원인 분석과 해결 과정을 기록
+          업무에서 마주친 실제 문제의 원인 분석과 해결 과정을 기록한 TIL입니다.
+          &quot;기능 구현&quot;보다 판단 근거와 맥락을 남기는 것을 원칙으로 합니다.
         </p>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {blogHighlights.map((post) => (
-            <div
-              key={post.title}
-              className="rounded-xl border border-border bg-card p-5"
-            >
-              <div className="flex items-start justify-between">
-                <h3 className="text-sm font-semibold">{post.title}</h3>
-                <span className="shrink-0 rounded-full bg-accent-light px-2 py-0.5 text-xs text-accent">
-                  {post.count}
-                </span>
-              </div>
-              <p className="mt-2 text-xs leading-relaxed text-muted">
-                {post.description}
+
+        {/* Stats */}
+        <div className="mt-6 grid grid-cols-3 gap-4 rounded-xl border border-border bg-card p-6">
+          {blogStats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="text-2xl font-bold text-accent md:text-3xl">
+                {stat.value}
               </p>
+              <p className="mt-1 text-xs text-muted">{stat.label}</p>
             </div>
           ))}
+        </div>
+
+        {/* Categories */}
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          {blogCategories.map((cat) => (
+            <div
+              key={cat.name}
+              className="rounded-xl border border-border bg-card p-5"
+            >
+              <div className="flex items-baseline justify-between gap-2">
+                <h3 className="text-sm font-semibold">{cat.name}</h3>
+                <span className="shrink-0 rounded-full bg-accent-light px-2 py-0.5 text-xs text-accent">
+                  {cat.count}편
+                </span>
+              </div>
+              <ul className="mt-3 space-y-1.5">
+                {cat.picks.map((title) => (
+                  <li
+                    key={title}
+                    className="flex gap-2 text-xs leading-relaxed text-muted"
+                  >
+                    <span className="text-accent">›</span>
+                    <span>{title}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-6 flex justify-end">
+          <a
+            href={BLOG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-sm text-accent transition hover:opacity-80"
+          >
+            블로그 전체 보기 →
+          </a>
         </div>
       </section>
 
