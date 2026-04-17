@@ -84,11 +84,6 @@ export const projects: Project[] = [
     ],
     relatedPosts: [
       {
-        slug: "qaroom-devlog",
-        title: "QA 기록방을 만들었습니다",
-        kind: "overview",
-      },
-      {
         slug: "qaroom-01-planning",
         title: "QA 기록방을 만든 이유 — 우아콘2025에서 시작된 아이디어",
         kind: "series",
