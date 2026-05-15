@@ -28,7 +28,7 @@ export function RelatedPosts({ posts }: { posts: RelatedPost[] }) {
         {sorted.map((post) => (
           <a
             key={post.slug}
-            href={`${BLOG_BASE}/blog/${post.slug}`}
+            href={`${BLOG_BASE}/post/${post.path}`}
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-start gap-3 rounded-lg border border-border bg-card px-4 py-3 transition hover:border-accent hover:shadow-sm"
