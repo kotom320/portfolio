@@ -20,7 +20,7 @@ const skills = [
   },
 ];
 
-const BLOG_URL = "https://til-git-main-kotom320s-projects.vercel.app";
+const BLOG_URL = "https://kotom320-til.vercel.app";
 
 const blogStats = [
   { label: "총 포스트", value: "76편" },

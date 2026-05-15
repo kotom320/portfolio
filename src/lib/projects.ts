@@ -18,7 +18,7 @@ export interface Project {
   relatedPosts?: RelatedPost[];
 }
 
-export const BLOG_BASE = "https://til-git-main-kotom320s-projects.vercel.app";
+export const BLOG_BASE = "https://kotom320-til.vercel.app";
 
 export const projects: Project[] = [
   {
