@@ -39,11 +39,11 @@ export default function RootLayout({
               <Link href="/#projects" className="hover:text-foreground transition">
                 Projects
               </Link>
+              <Link href="/#experience" className="hover:text-foreground transition">
+                Experience
+              </Link>
               <Link href="/#skills" className="hover:text-foreground transition">
                 Skills
-              </Link>
-              <Link href="/#blog" className="hover:text-foreground transition">
-                Blog
               </Link>
               <a
                 href="https://github.com/kotom320"
