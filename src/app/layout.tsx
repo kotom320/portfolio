@@ -36,15 +36,15 @@ export default function RootLayout({
               고동욱
             </Link>
             <div className="flex items-center gap-6 text-sm text-muted">
-              <a href="/#projects" className="hover:text-foreground transition">
+              <Link href="/#projects" className="hover:text-foreground transition">
                 Projects
-              </a>
-              <a href="/#experience" className="hover:text-foreground transition">
+              </Link>
+              <Link href="/#experience" className="hover:text-foreground transition">
                 Experience
-              </a>
-              <a href="/#skills" className="hover:text-foreground transition">
+              </Link>
+              <Link href="/#skills" className="hover:text-foreground transition">
                 Skills
-              </a>
+              </Link>
               <a
                 href="https://github.com/kotom320"
                 target="_blank"
