@@ -6,6 +6,9 @@
 credentials.json
 secrets.json
 
+# resume - 민감정보(연봉/생년월일). 별도 private 레포에서 관리. public repo에 절대 커밋 금지
+/resume/
+
 # dependencies
 /node_modules
 /.pnp
