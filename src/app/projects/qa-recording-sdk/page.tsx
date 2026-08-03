@@ -152,11 +152,11 @@ export default function QaSdkPage() {
         <div className="mt-4 rounded-xl border border-border bg-accent-light/30 p-5">
           <ul className="space-y-2 text-sm leading-relaxed">
             <li>
-              <strong>운영 비용 0원</strong>: Supabase 무료 티어로 운영, 상용 도구 대비
-              월 수백만 원 수준의 비용 0화
+              <strong>운영 비용 0원</strong>: Supabase 무료 티어만으로 운영. 상용 도구를 도입하지
+              않고도 검증이 가능해졌다는 점이 핵심
             </li>
             <li>
-              <strong>개발·디자인 협업 검증 도구로 정착</strong>: 함께 개발하는
+              <strong>개발·디자인 협업 검증에 활용</strong>: 함께 개발하는
               디자이너·개발자가 기능 검증 단계에서 재현 가능한 세션을 공유하는 채널로 활용
             </li>
             <li>

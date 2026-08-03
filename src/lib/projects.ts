@@ -25,10 +25,10 @@ export const projects: Project[] = [
     slug: "cloudfront-optimization",
     title: "인프라 비용 최적화",
     subtitle: "CloudFront 트래픽 구조 개선으로 운영 비용 절감",
-    period: "2024",
+    period: "2024 · 2026.02~03",
     tags: ["AWS CloudFront", "Cache Strategy", "WebP", "Data Analysis"],
     summary:
-      "MAU 50만 규모 서비스에서 비용 데이터를 직접 분석하여 CDN 과금 구조의 근본 원인을 규명하고, 이미지 포맷 전환과 캐시 전략 재설계로 월 CDN 운영 비용을 3개월 내 77.5% 절감.",
+      "두 단계로 진행. (2024) 이미지 핸들러 도입과 WebP 전환으로 대표 이미지 용량 94% 감축. (2026) MAU 50만 규모 서비스에서 측정 기준을 먼저 세워 배포 시 캐시 무효화 범위가 과광역이라는 원인을 규명하고, 범위 축소와 immutable 캐시 적용으로 월 CDN 운영 비용을 3개월 내 77.5% 절감.",
     metrics: [
       {
         label: "월 CDN 비용",
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     period: "2026.03",
     tags: ["rrweb", "Shadow DOM", "Supabase", "Jira API", "SDK Design"],
     summary:
-      "상용 세션 레코딩 도구(LogRocket 등)의 월 수백만 원 비용 부담을 해소하기 위해 rrweb 기반 자체 SDK와 뷰어, Jira 연동 Edge Function까지 단독 설계·구현. 현재 개발자·디자이너의 UI 검증 및 버그 리포팅 보조 도구로 활용.",
+      "상용 세션 레코딩 도구는 사내 검증 용도에 비해 기능이 과하고 비용도 부담이라 도입 논의가 진척되지 않던 상황에서, rrweb 기반 자체 SDK와 뷰어, Jira 연동 Edge Function까지 단독 설계·구현. 무료 티어만으로 3일 만에 검증 가능한 프로토타입을 만들었고, 현재 QA팀과 함께 리포팅 UX를 개선하며 실사용화를 진행 중.",
     metrics: [
       {
         label: "운영 비용",
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     slug: "reservation-refactoring",
     title: "예약 도메인 아키텍처 재설계",
     subtitle: "과도한 공통화로 인한 결합도 문제를 도메인 분리로 해소",
-    period: "2024",
+    period: "2025.10 ~ 2025.12",
     tags: [
       "Architecture",
       "Refactoring",

@@ -12,7 +12,7 @@ export default function ReservationPage() {
       </Link>
 
       <div className="mt-6">
-        <p className="text-sm font-medium text-accent">2024</p>
+        <p className="text-sm font-medium text-accent">2025.10 ~ 2025.12</p>
         <h1 className="mt-1 text-3xl font-bold tracking-tight">
           예약 도메인 아키텍처 재설계
         </h1>

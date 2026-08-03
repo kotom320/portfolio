@@ -4,9 +4,9 @@ import { projects } from "@/lib/projects";
 const BLOG_URL = "https://kotom320-til.vercel.app";
 
 const heroMetrics = [
-  { value: "95만+", label: "서비스 회원" },
-  { value: "890", label: "아파트 단지" },
-  { value: "5년", label: "프론트엔드 경력" },
+  { value: "100만+", label: "서비스 회원" },
+  { value: "870", label: "아파트 단지" },
+  { value: "6년", label: "프론트엔드 경력" },
 ];
 
 const skills = [
@@ -105,7 +105,7 @@ export default function Home() {
               <span className="text-sm text-muted shrink-0">2022.02 ~ 현재</span>
             </div>
             <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted/90">
-              <li className="flex gap-2"><span className="text-accent shrink-0">›</span><span>전국 95만 회원 / 890단지 규모 아파트 통합 플랫폼 FE 개발</span></li>
+              <li className="flex gap-2"><span className="text-accent shrink-0">›</span><span>전국 100만 회원 / 870단지 / 65만 세대 규모 아파트 통합 플랫폼 FE 개발</span></li>
               <li className="flex gap-2"><span className="text-accent shrink-0">›</span><span>커뮤니티·예약·전자투표 핵심 도메인 전담, 13개 멀티 클라이언트 운영</span></li>
               <li className="flex gap-2"><span className="text-accent shrink-0">›</span><span>CloudFront 인프라 비용 최적화, Jenkins 배포 파이프라인 구축, Storybook 기반 디자인 시스템 협업 체계 도입</span></li>
               <li className="flex gap-2"><span className="text-accent shrink-0">›</span><span>27회 정기 릴리스 / 32회 핫픽스 대응</span></li>
